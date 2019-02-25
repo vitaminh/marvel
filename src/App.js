@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import { CharacterList } from './components';
+import { CharacterList, Footer } from './components';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <CharacterList />
+        <Footer />
       </div>
     );
   }
