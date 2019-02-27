@@ -25,7 +25,9 @@ class CharacterListPresentational extends React.Component {
     return (
       <div>
         {this.props.characterList.map(character => (
-          <p key={character.id}>{character.name}</p>
+          <div key={character.id}>
+            <p>{character.name}<img src={character.thumbnail.path + '.' + character.thumbnail.extension} alt="Character Thumbnail" /></p>
+          </div>
         ))}
       </div>
     );
