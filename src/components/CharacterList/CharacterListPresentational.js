@@ -1,4 +1,5 @@
 import React from 'react';
+import store from '../../store';
 
 class CharacterListPresentational extends React.Component {
   constructor() {
@@ -8,13 +9,9 @@ class CharacterListPresentational extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    try {
-      await this.props.loadCharacterList();
-      this.setState({ loading: false });
-    } catch (error) {
-      console.error(error);
-    }
+  componentDidMount() {
+    store.dispatch({type: 'GET_CHARACTER_LIST'})
+    this.setState({ loading: false });
   }
 
   render() {

@@ -1,14 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import thunkMiddleware from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension';
+
 import characterList from './characterList';
+import rootSaga from './sagas';
 
 const reducer = combineReducers({ characterList });
+const sagaMiddleware = createSagaMiddleware();
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
+  applyMiddleware(sagaMiddleware, createLogger({ collapsed: true }))
 );
 const store = createStore(reducer, middleware);
+sagaMiddleware.run(rootSaga);
 
 export default store;
 export * from './characterList';
