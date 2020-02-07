@@ -3,9 +3,6 @@ import { RETRIEVED_CHARACTER_LIST } from '../constants'
 // Initial State
 const initialCharacterListState = [];
 
-// ACTION TYPES
-// const RETRIEVED_CHARACTER_LIST = 'RETRIEVED_CHARACTER_LIST';
-
 // Action Creators
 export const retrievedCharacterList = characterList => ({
   type: RETRIEVED_CHARACTER_LIST,

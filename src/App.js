@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { CharacterList, Footer } from './components';
+import { CharacterList, ComicList, Footer } from './components';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <ComicList />
         <CharacterList />
         <Footer />
       </div>

@@ -5,4 +5,5 @@
  */
 
 export { default as CharacterList } from './CharacterList';
+export { default as ComicList } from './ComicList';
 export { default as Footer } from './Footer';

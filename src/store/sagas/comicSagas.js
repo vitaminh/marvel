@@ -1,19 +1,20 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { retrievedCharacterList } from '../reducers/characterListReducer';
 
+import { GET_COMIC_LIST } from '../constants';
+import { retrievedComicList } from '../reducers/comicListReducer';
 import { fetchData } from '../utils';
 
 // Sagas
-const fetchCharacterList = () => {
-  return fetchData('https://gateway.marvel.com/v1/public/characters?');
+const fetchComicList = () => {
+  return fetchData('https://gateway.marvel.com:443/v1/public/comics?dateDescriptor=thisWeek&orderBy=onsaleDate&');
 }
 
-export function* getCharacterList() {
-  const response = yield call(fetchCharacterList);
-  const characterList = response.data.data.results;
-  yield put(retrievedCharacterList(characterList));
+export function* getComicList() {
+  const response = yield call(fetchComicList);
+  const comicList = response.data.data.results;
+  yield put(retrievedComicList(comicList));
 }
 
-export function* watchGetCharacterList() {
-  yield takeEvery('GET_CHARACTER_LIST', getCharacterList);
+export function* watchGetComicList() {
+  yield takeEvery(GET_COMIC_LIST, getComicList);
 }

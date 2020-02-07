@@ -1,10 +1,13 @@
 import { all } from 'redux-saga/effects';
 
-import { getCharacterList, watchGetCharacterList } from './comicSagas';
+import { getComicList, watchGetComicList } from './comicSagas';
+import { getCharacterList, watchGetCharacterList } from './characterSagas';
 
 export default function* rootSaga() {
   yield all([
     getCharacterList(),
-    watchGetCharacterList()
+    watchGetCharacterList(),
+    getComicList(),
+    watchGetComicList()
   ])
 }
