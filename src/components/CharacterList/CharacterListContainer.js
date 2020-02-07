@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CharacterListPresentational from './CharacterListPresentational';
 
 const mapState = state => ({
-  characterList: state.characterList
+  characterList: state.characterListReducer
 });
 
 const CharacterListContainer = connect(

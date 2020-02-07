@@ -1,8 +1,10 @@
+import { RETRIEVED_CHARACTER_LIST } from '../constants'
+
 // Initial State
 const initialCharacterListState = [];
 
 // ACTION TYPES
-const RETRIEVED_CHARACTER_LIST = 'RETRIEVED_CHARACTER_LIST';
+// const RETRIEVED_CHARACTER_LIST = 'RETRIEVED_CHARACTER_LIST';
 
 // Action Creators
 export const retrievedCharacterList = characterList => ({
@@ -11,7 +13,7 @@ export const retrievedCharacterList = characterList => ({
 });
 
 // Reducer
-export default function(characterList = initialCharacterListState, action) {
+const characterListReducer = (characterList = initialCharacterListState, action) => {
   switch (action.type) {
     case RETRIEVED_CHARACTER_LIST:
       return action.characterList;
@@ -19,3 +21,5 @@ export default function(characterList = initialCharacterListState, action) {
       return characterList;
   }
 }
+
+export default characterListReducer;
