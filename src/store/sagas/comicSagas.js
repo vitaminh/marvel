@@ -1,15 +1,11 @@
-import md5 from 'md5';
-import {privateKey, publicKey} from '../../secrets';
-import axios from 'axios';
-import {call, put, takeEvery} from 'redux-saga/effects';
-import {retrievedCharacterList} from '../reducers/characterListReducer';
+import { call, put, takeEvery } from 'redux-saga/effects';
+import { retrievedCharacterList } from '../reducers/characterListReducer';
+
+import { fetchData } from '../utils';
 
 // Sagas
 const fetchCharacterList = () => {
-  const ts = Date.now();
-  const hash = md5(ts + privateKey + publicKey)
-  const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
-  return axios.get(url);
+  return fetchData('https://gateway.marvel.com/v1/public/characters?');
 }
 
 export function* getCharacterList() {
