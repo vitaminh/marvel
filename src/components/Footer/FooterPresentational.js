@@ -1,7 +1,9 @@
 import React from 'react';
 
+const currentDate = new Date();
+
 const FooterPresentational = props => {
-  return <div>Data provided by Marvel. © 2019 Marvel</div>;
+  return <div>Data provided by Marvel. © { currentDate.getFullYear() } Marvel</div>;
 };
 
 export default FooterPresentational;
