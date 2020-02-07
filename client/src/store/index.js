@@ -3,11 +3,13 @@ import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-// import characterList from './characterList';
 import { characterListReducer, comicListReducer } from './reducers';
 import rootSaga from './sagas';
 
-const reducer = combineReducers({ characterListReducer, comicListReducer });
+const reducer = combineReducers({
+  characterListReducer,
+  comicListReducer
+});
 const sagaMiddleware = createSagaMiddleware();
 const middleware = composeWithDevTools(
   applyMiddleware(sagaMiddleware, createLogger({ collapsed: true }))
