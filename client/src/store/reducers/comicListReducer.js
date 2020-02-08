@@ -1,7 +1,10 @@
 import { RETRIEVED_COMIC_LIST } from '../constants'
 
 // Initial State
-const initialComicListState = [];
+const initialComicListState = {
+  loaded: false,
+  comicList: []
+};
 
 // Action Creators
 export const retrievedComicList = comicList => ({
@@ -13,7 +16,10 @@ export const retrievedComicList = comicList => ({
 const comicListReducer = (comicList = initialComicListState, action) => {
   switch (action.type) {
     case RETRIEVED_COMIC_LIST:
-      return action.comicList;
+      return {
+        loaded: true,
+        comicList: action.comicList
+      }
     default:
       return comicList;
   }
