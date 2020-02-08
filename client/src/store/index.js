@@ -7,8 +7,8 @@ import { characterListReducer, comicListReducer } from './reducers';
 import rootSaga from './sagas';
 
 const reducer = combineReducers({
-  characterListReducer,
-  comicListReducer
+  characterList: characterListReducer,
+  comicList: comicListReducer
 });
 const sagaMiddleware = createSagaMiddleware();
 const middleware = composeWithDevTools(
