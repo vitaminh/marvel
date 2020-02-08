@@ -1,6 +1,8 @@
 import md5 from 'md5';
-import { privateKey, publicKey } from '../../secrets';
 import axios from 'axios';
+
+const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+const privateKey = process.env.REACT_APP_PRIVATE_KEY;
 
 // Helper function that
 // 1. generates necessary url and
