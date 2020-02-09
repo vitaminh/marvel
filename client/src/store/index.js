@@ -3,11 +3,10 @@ import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { characterListReducer, comicListReducer } from './reducers';
+import { comicListReducer } from './reducers';
 import rootSaga from './sagas';
 
 const reducer = combineReducers({
-  characterList: characterListReducer,
   comicList: comicListReducer
 });
 const sagaMiddleware = createSagaMiddleware();
