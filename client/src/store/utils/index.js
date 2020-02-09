@@ -7,9 +7,10 @@ const privateKey = process.env.REACT_APP_PRIVATE_KEY;
 // Helper function that
 // 1. generates necessary url and
 // 2. fetches data from Marvel's API
-export const fetchData = (partialUrl) => {
+export const fetchData = async (partialUrl) => {
   const ts = Date.now();
   const hash = md5(ts + privateKey + publicKey)
   const url = partialUrl + `ts=${ts}&apikey=${publicKey}&hash=${hash}`;
-  return axios.get(url);
+  const response = await axios.get(url)
+  return response;
 }
