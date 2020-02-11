@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import store, { GET_COMIC_LIST } from '../../store';
 
 class ComicListPresentational extends React.Component {
@@ -15,10 +17,12 @@ class ComicListPresentational extends React.Component {
       <div>
         {this.props.comicList.comicList.map(comic => (
           <div key={comic.id}>
-            <div>
-              <img src={comic.thumbnail.path + '.' + comic.thumbnail.extension} alt="Comic Thumbnail" />
-            </div>
-            <p>{comic.title}</p>
+            <Link to={`/comic/${comic.id}`}>
+              <div>
+                <img src={comic.thumbnail.path + '.' + comic.thumbnail.extension} alt="Comic Thumbnail" />
+              </div>
+              <p>{comic.title}</p>
+            </Link>
           </div>
         ))}
       </div>

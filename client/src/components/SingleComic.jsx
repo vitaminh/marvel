@@ -16,13 +16,18 @@ class SingleComic extends React.Component {
   }
 
   render() {
-    if (!this.state.title) {
+    const comic = this.state;
+
+    if (!comic.title) {
       return (<p>Loading</p>)
     }
 
     return (
       <div>
-        <p>{this.state.title}</p>
+        <div>
+          <img src={comic.thumbnail.path + '.' + comic.thumbnail.extension} alt="Comic Thumbnail" />
+        </div>
+        <p>{comic.title}</p>
       </div>
     )
   }
