@@ -5,7 +5,9 @@ import store, { GET_COMIC_LIST } from '../../store';
 
 class ComicListPresentational extends React.Component {
   componentDidMount() {
-    store.dispatch({type: GET_COMIC_LIST})
+    if (!this.props.comicList.loaded) {
+      store.dispatch({type: GET_COMIC_LIST})
+    }
   }
 
   render() {
