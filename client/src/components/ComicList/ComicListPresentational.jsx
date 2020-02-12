@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { SITE_NAME } from '../Constants';
 import store, { GET_COMIC_LIST } from '../../store';
 
 class ComicListPresentational extends React.Component {
   componentDidMount() {
+    document.title = SITE_NAME;
     if (!this.props.comicList.loaded) {
       store.dispatch({type: GET_COMIC_LIST})
     }

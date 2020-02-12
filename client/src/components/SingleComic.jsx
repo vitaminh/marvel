@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import {SITE_NAME} from './Constants';
 import {fetchData} from '../store/utils'
 
 class SingleComic extends React.Component {
@@ -13,6 +14,7 @@ class SingleComic extends React.Component {
     const comicId = this.props.match.params.id;
     const response = await fetchData(`https://gateway.marvel.com:443/v1/public/comics/${comicId}?`);
     this.setState(response.data.data.results[0]);
+    document.title = `${SITE_NAME} - ${this.state.title}`;
   }
 
   render() {
